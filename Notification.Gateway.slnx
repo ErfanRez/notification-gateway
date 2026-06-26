@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Notification.Gateway.Core/Notification.Gateway.Core.csproj" Id="2094ee03-33a2-4ad5-a8fc-ef36c890efd5" />
   <Project Path="Notification.Gateway.Presentation/Notification.Gateway.Presentation.csproj" />
 </Solution>
