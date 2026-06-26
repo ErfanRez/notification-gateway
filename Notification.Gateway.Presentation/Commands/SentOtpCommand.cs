@@ -32,6 +32,5 @@ internal sealed class SendOtpCommand : ICommand
         await _notificationService.SendAsync(message);
 
         Console.WriteLine();
-        Console.WriteLine($"Final Status: {message.Status}");
     }
 }
