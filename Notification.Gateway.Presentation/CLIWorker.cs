@@ -39,8 +39,6 @@ internal sealed class CLIWorker : BackgroundService
             {
                 Console.WriteLine(ex.Message);
             }
-
-            Console.WriteLine();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Notification.Gateway.Core.Abstractions;
+﻿using Microsoft.Extensions.Logging;
+using Notification.Gateway.Core.Abstractions;
 using Notification.Gateway.Core.Domain;
 using Notification.Gateway.Core.Events;
 
@@ -6,20 +7,23 @@ namespace Notification.Gateway.Core.Services;
 
 public sealed class NotificationService : INotificationService
 {
+    private readonly ILogger<NotificationService> _logger;
     private readonly IProviderPipeline _pipeline;
     private readonly NotificationEventPublisher _events;
 
     public NotificationService(
         IProviderPipeline pipeline,
-        NotificationEventPublisher events)
+        NotificationEventPublisher events,
+        ILogger<NotificationService> logger)
     {
         _pipeline = pipeline;
         _events = events;
+        _logger = logger;
     }
 
     public async Task SendAsync(BaseMessage message)
     {
-        Console.WriteLine("Creating Message...");
+        _logger.LogInformation("Creating Message...");
 
         _events.RaiseMessageCreated(message);
 
@@ -32,6 +36,8 @@ public sealed class NotificationService : INotificationService
                 ? MessageStatus.Sent
                 : MessageStatus.Failed);
 
-        Console.WriteLine($"Final status: {message.Status}");
+        _logger.LogInformation("Final status: {Status}", message.Status);
+
+        Console.WriteLine();
     }
 }

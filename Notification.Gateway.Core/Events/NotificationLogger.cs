@@ -20,7 +20,7 @@ public sealed class NotificationLogger
 
         publisher.ProviderChanged += (_, e) =>
             logger.LogInformation(
-                "Switching provider ...");
+                "Switching provider...");
 
         publisher.MessageSent += (_, e) =>
             logger.LogInformation(
