@@ -1,6 +1,8 @@
-﻿namespace Notification.Gateway.Core.Models;
+﻿using Notification.Gateway.Core.Domain;
 
-public abstract class Message
+namespace Notification.Gateway.Core.Abstractions;
+
+public abstract class BaseMessage
 {
     public Guid Id { get; init; }
     public string Recipient { get; init; }
@@ -8,7 +10,7 @@ public abstract class Message
     public DateTime CreatedAt { get; init; }
     public MessageStatus Status { get; protected set; }
 
-    protected Message(string recipient, string content)
+    protected BaseMessage(string recipient, string content)
     {
         Id = Guid.NewGuid();
         CreatedAt = DateTime.UtcNow;
@@ -18,5 +20,8 @@ public abstract class Message
         Content = content;
     }
 
-    public abstract void UpdateStatus(MessageStatus status);
+    public virtual void UpdateStatus(MessageStatus status)
+    {
+        Status = status;
+    }
 }

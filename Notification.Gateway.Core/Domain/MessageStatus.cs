@@ -1,4 +1,4 @@
-﻿namespace Notification.Gateway.Core.Models;
+﻿namespace Notification.Gateway.Core.Domain;
 
 public enum MessageStatus
 {
