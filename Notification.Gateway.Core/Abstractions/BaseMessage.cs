@@ -4,7 +4,8 @@ namespace Notification.Gateway.Core.Abstractions;
 
 public abstract class BaseMessage
 {
-    public Guid Id { get; init; }
+    private static int coutner = 0;
+    public int Id { get; init; }
     public string Recipient { get; init; }
     public string Content { get; init; }
     public DateTime CreatedAt { get; init; }
@@ -12,7 +13,7 @@ public abstract class BaseMessage
 
     protected BaseMessage(string recipient, string content)
     {
-        Id = Guid.NewGuid();
+        Id = coutner++;
         CreatedAt = DateTime.UtcNow;
         Status = MessageStatus.Created;
 

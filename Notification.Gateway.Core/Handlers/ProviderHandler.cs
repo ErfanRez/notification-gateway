@@ -20,6 +20,7 @@ internal class ProviderHandler<TProvider> : BaseProviderHandler
 
     public override async Task<SendResult> HandleAsync(BaseMessage message)
     {
+
         _events.RaiseProviderSelected(message, _provider.Name);
 
         var result = await _provider.SendAsync(message);
@@ -38,6 +39,7 @@ internal class ProviderHandler<TProvider> : BaseProviderHandler
 
             return await Next.HandleAsync(message);
         }
+
 
         return result;
     }

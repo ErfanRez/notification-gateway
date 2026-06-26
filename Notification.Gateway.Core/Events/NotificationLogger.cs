@@ -19,7 +19,7 @@ public sealed class NotificationLogger
                 e.ProviderName);
 
         publisher.ProviderChanged += (_, e) =>
-            logger.LogWarning(
+            logger.LogInformation(
                 "Switching provider ...");
 
         publisher.MessageSent += (_, e) =>
@@ -29,7 +29,7 @@ public sealed class NotificationLogger
                 e.ProviderName);
 
         publisher.MessageFailed += (_, e) =>
-            logger.LogError(
+            logger.LogInformation(
                 "{Provider} failed.",
                 e.ProviderName);
     }
