@@ -14,4 +14,4 @@
 
 - **Command Pattern**: Used in presentation layer (worker serivce) to handle parsing and creating corresponding command types stand-alone objects ready to execute to the core notification service.
 
-## All SOLID principles considered and applied throughout the application structure.
+All SOLID principles considered and applied throughout the application structure.
