@@ -12,4 +12,6 @@
   - MessageFailed
   - ProviderChanged
 
-- **Command Pattern**: Used in presentation layer (worker serivce) to handle parsing and creating corresponding command types fully self-contained and ready to pass to the core notification service.
+- **Command Pattern**: Used in presentation layer (worker serivce) to handle parsing and creating corresponding command types stand-alone objects ready to execute to the core notification service.
+
+## All SOLID principles considered and applied throughout the application structure.
